@@ -1,0 +1,1756 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Цифровая безопасность: защити свои данные</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Soyuz Grotesk';
+            src: local('Soyuz Grotesk'), local('Arial');
+            font-weight: 700;
+        }
+        @font-face {
+            font-family: 'Arkhit';
+            src: local('Arkhit'), local('Inter'), local('Arial');
+            font-weight: 400;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arkhit', 'Inter', Arial, sans-serif;
+            background-color: #3B3B3B;
+            color: #FCFAFA;
+            font-size: 18px;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        h1 {
+            font-family: 'Soyuz Grotesk', Arial, sans-serif;
+            color: #ECCACB;
+            font-size: 40px;
+            margin-bottom: 30px;
+            line-height: 1.2;
+        }
+        h2 {
+            font-family: 'Soyuz Grotesk', Arial, sans-serif;
+            color: #ECCACB;
+            font-size: 32px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+        h3 {
+            font-family: 'Soyuz Grotesk', Arial, sans-serif;
+            color: #ECCACB;
+            font-size: 24px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .nav-icons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin: 30px 0;
+        }
+        .nav-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            transition: transform 0.2s, opacity 0.2s;
+            cursor: pointer;
+            object-fit: contain;
+        }
+        .nav-icon:hover {
+            transform: scale(1.1);
+            opacity: 0.8;
+        }
+        .nav-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #FCFAFA;
+            font-size: 12px;
+            gap: 5px;
+        }
+        .btn-home {
+            display: inline-block;
+            background-color: #ECCACB;
+            color: #3B3B3B;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 30px;
+            transition: opacity 0.2s;
+        }
+        .btn-home:hover {
+            opacity: 0.8;
+        }
+        .screenshot {
+            max-width: 320px;
+            width: 100%;
+            border-radius: 12px;
+            margin: 15px 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        .screenshots-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .warning-box {
+            background-color: rgba(236, 202, 203, 0.1);
+            border-left: 4px solid #ECCACB;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .checklist {
+            background-color: rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+        .checkbox {
+            width: 18px;
+            height: 18px;
+            border: 2px solid #ECCACB;
+            border-radius: 4px;
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: rgba(255,255,255,0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        th {
+            background-color: rgba(236, 202, 203, 0.2);
+            color: #ECCACB;
+            font-weight: 600;
+        }
+        tr:hover {
+            background-color: rgba(255,255,255,0.05);
+        }
+        .faq-item {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .faq-question {
+            font-weight: 600;
+            color: #ECCACB;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+        a {
+            color: #ECCACB;
+            text-decoration: underline;
+        }
+        .source-link {
+            display: block;
+            margin-bottom: 8px;
+        }
+        .hero-section {
+            text-align: center;
+            padding: 40px 0;
+        }
+        .hero-icon {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 20px;
+        }
+        .step {
+            background-color: rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 15px 0;
+            border-left: 3px solid #ECCACB;
+        }
+        .step-number {
+            color: #ECCACB;
+            font-weight: 700;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        @media (max-width: 600px) {
+            h1 { font-size: 28px; }
+            h2 { font-size: 24px; }
+            body { font-size: 16px; }
+            .nav-icons { gap: 15px; }
+            .nav-icon { width: 36px; height: 36px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero-section">
+            <img src="https://cdn-icons-png.flaticon.com/512/3064/3064197.png" alt="Security" class="hero-icon">
+            <h1>Цифровая безопасность: защити свои данные</h1>
+            <p>Добро пожаловать на ресурс, посвящённый защите личных данных в социальных сетях. Здесь вы найдёте пошаговые инструкции, чек-листы и актуальные рекомендации по кибербезопасности для популярных платформ.</p>
+        </div>
+
+        <h2>Как пользоваться сайтом:</h2>
+        <ul>
+            <li>Выберите социальную сеть из списка ниже, чтобы получить индивидуальную инструкцию по защите аккаунта</li>
+            <li>Перейдите в раздел «Взломали аккаунт», если срочно нужно восстановить доступ</li>
+            <li>Используйте чек-листы для регулярного аудита безопасности</li>
+            <li>Загляните в Q&A, чтобы найти ответы на частые вопросы</li>
+        </ul>
+
+        <div class="warning-box">
+            <h3>⚠️ Взломали аккаунт. Что делать?</h3>
+            <p>Если ваш аккаунт был взломан — действуйте немедленно! Перейдите на страницу экстренного восстановления доступа.</p>
+            <a href="hacked.html" class="btn-home">Экстренное восстановление →</a>
+        </div>
+
+        <h2>Почему важно защищать персональные данные:</h2>
+        <p>Ваши аккаунты — это не просто профили. Это доступ к личной переписке, фотографиям, контактам, иногда — к банковским картам и рабочим чатам. Утечка данных может привести к шантажу, краже денег, распространению ложной информации от вашего имени.</p>
+
+        <h2>Иконки-навигация:</h2>
+        <div class="nav-icons">
+            <a href="vk.html" class="nav-link">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/VK.com-logo.svg/1200px-VK.com-logo.svg.png" alt="VK" class="nav-icon">
+                <span>VK</span>
+            </a>
+            <a href="max.html" class="nav-link">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/%D0%9B%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF_MAX.svg/250px-%D0%9B%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF_MAX.svg.png" alt="MAX" class="nav-icon">
+                <span>MAX</span>
+            </a>
+            <a href="telegram.html" class="nav-link">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/1200px-Telegram_logo.svg.png" alt="Telegram" class="nav-icon">
+                <span>Telegram</span>
+            </a>
+            <a href="tiktok.html" class="nav-link">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Tiktok_icon.svg/500px-Tiktok_icon.svg.png" alt="TikTok" class="nav-icon">
+                <span>TikTok</span>
+            </a>
+            <a href="checklists.html" class="nav-link">
+                <img src="https://cdn-icons-png.flaticon.com/512/2098/2098402.png" alt="Чек-листы" class="nav-icon">
+                <span>Чек-листы</span>
+            </a>
+            <a href="qa.html" class="nav-link">
+                <img src="https://cdn-icons-png.flaticon.com/512/4712/4712035.png" alt="Q&A" class="nav-icon">
+                <span>Q&A</span>
+            </a>
+            <a href="sources.html" class="nav-link">
+                <img src="https://cdn-icons-png.flaticon.com/512/2909/2909796.png" alt="Источники" class="nav-icon">
+                <span>Источники</span>
+            </a>
+        </div>
+
+        <h2>Разделы сайта:</h2>
+        <div class="nav-icons">
+            <a href="general.html" class="nav-link">
+                <img src="https://cdn-icons-png.flaticon.com/512/3064/3064197.png" alt="Общие принципы" class="nav-icon">
+                <span>Общие принципы</span>
+            </a>
+            <a href="hacked.html" class="nav-link">
+                <img src="https://cdn-icons-png.flaticon.com/512/564/564619.png" alt="Взлом" class="nav-icon">
+                <span>Взломали аккаунт</span>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
+---
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Общие принципы безопасности</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Soyuz Grotesk';
+            src: local('Soyuz Grotesk'), local('Arial');
+            font-weight: 700;
+        }
+        @font-face {
+            font-family: 'Arkhit';
+            src: local('Arkhit'), local('Inter'), local('Arial');
+            font-weight: 400;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arkhit', 'Inter', Arial, sans-serif;
+            background-color: #3B3B3B;
+            color: #FCFAFA;
+            font-size: 18px;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        h1 {
+            font-family: 'Soyuz Grotesk', Arial, sans-serif;
+            color: #ECCACB;
+            font-size: 40px;
+            margin-bottom: 30px;
+            line-height: 1.2;
+        }
+        h2 {
+            font-family: 'Soyuz Grotesk', Arial, sans-serif;
+            color: #ECCACB;
+            font-size: 32px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+        h3 {
+            font-family: 'Soyuz Grotesk', Arial, sans-serif;
+            color: #ECCACB;
+            font-size: 24px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .btn-home {
+            display: inline-block;
+            background-color: #ECCACB;
+            color: #3B3B3B;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 30px;
+            transition: opacity 0.2s;
+        }
+        .btn-home:hover {
+            opacity: 0.8;
+        }
+        .step {
+            background-color: rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 15px 0;
+            border-left: 3px solid #ECCACB;
+        }
+        .step-number {
+            color: #ECCACB;
+            font-weight: 700;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        @media (max-width: 600px) {
+            h1 { font-size: 28px; }
+            h2 { font-size: 24px; }
+            body { font-size: 16px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Общие принципы безопасности</h1>
+
+        <h2>О защите личных данных в цифровой среде:</h2>
+        <p>Каждая социальная сеть — это отдельная экосистема со своими настройками, но базовые принципы защиты универсальны. Понимание этих принципов поможет вам минимизировать риски на любой платформе.</p>
+
+        <h2>Общие правила для всех платформ:</h2>
+
+        <div class="step">
+            <div class="step-number">1. Уникальные пароли</div>
+            <p>Не используйте один пароль для нескольких сервисов. Если одна база данных утекает, остальные аккаунты останутся в безопасности.</p>
+        </div>
+
+        <div class="step">
+            <div class="step-number">2. Двухфакторная аутентификация (2FA)</div>
+            <p>Включайте её везде, где возможно. Это самый эффективный способ защитить аккаунт даже при утечке пароля.</p>
+        </div>
+
+        <div class="step">
+            <div class="step-number">3. Контроль активных сеансов</div>
+            <p>Регулярно проверяйте, с каких устройств открыт ваш аккаунт. Завершайте сеансы на устройствах, которые вам не принадлежат.</p>
+        </div>
+
+        <div class="step">
+            <div class="step-number">4. Осторожность с подозрительными ссылками</div>
+            <p>Не переходите по сокращённым ссылкам, не скачивайте файлы от незнакомцев, не вводите данные на поддельных сайтах.</p>
+        </div>
+
+        <div class="step">
+            <div class="step-number">5. Привязка актуальных контактов</div>
+            <p>Убедитесь, что к аккаунту привязан ваш текущий номер телефона и email — без них восстановление доступа будет сложным.</p>
+        </div>
+
+        <div class="step">
+            <div class="step-number">6. Регулярные проверки</div>
+            <p>Раз в месяц проходите по чек-листу безопасности: смена паролей, проверка устройств, обновление приложений.</p>
+        </div>
+
+        <a href="index.html" class="btn-home">← На главную</a>
+    </div>
+</body>
+</html>
+---
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Взломали аккаунт. Что делать?</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Soyuz Grotesk';
+            src: local('Soyuz Grotesk'), local('Arial');
+            font-weight: 700;
+        }
+        @font-face {
+            font-family: 'Arkhit';
+            src: local('Arkhit'), local('Inter'), local('Arial');
+            font-weight: 400;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arkhit', 'Inter', Arial, sans-serif;
+            background-color: #3B3B3B;
+            color: #FCFAFA;
+            font-size: 18px;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        h1 {
+            font-family: 'Soyuz Grotesk', Arial, sans-serif;
+            color: #ECCACB;
+            font-size: 40px;
+            margin-bottom: 30px;
+            line-height: 1.2;
+        }
+        h2 {
+            font-family: 'Soyuz Grotesk', Arial, sans-serif;
+            color: #ECCACB;
+            font-size: 32px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .btn-home {
+            display: inline-block;
+            background-color: #ECCACB;
+            color: #3B3B3B;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 30px;
+            transition: opacity 0.2s;
+        }
+        .btn-home:hover {
+            opacity: 0.8;
+        }
+        .step {
+            background-color: rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 15px 0;
+            border-left: 3px solid #ECCACB;
+        }
+        .step-number {
+            color: #ECCACB;
+            font-weight: 700;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .checklist {
+            background-color: rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+        .checkbox {
+            width: 18px;
+            height: 18px;
+            border: 2px solid #ECCACB;
+            border-radius: 4px;
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+        a {
+            color: #ECCACB;
+            text-decoration: underline;
+        }
+        @media (max-width: 600px) {
+            h1 { font-size: 28px; }
+            h2 { font-size: 24px; }
+            body { font-size: 16px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Экстренное восстановление доступа</h1>
+
+        <div class="step">
+            <div class="step-number">Шаг 1. Проверьте, действительно ли это взлом</div>
+            <p>Если не можете войти — попробуйте восстановить пароль через «Забыли пароль?». Если почта или телефон привязаны к чужим номерам — взлом подтверждён.</p>
+        </div>
+
+        <div class="step">
+            <div class="step-number">Шаг 2. Восстановите доступ</div>
+            <ul>
+                <li><strong>VK:</strong> <a href="https://vk.com/restore" target="_blank">vk.com/restore</a> — укажите ссылку на профиль, старый телефон/почту, отвечайте на вопросы службы поддержки.</li>
+                <li><strong>MAX:</strong> восстановление идёт через общий аккаунт VK. Если взломан VK — MAX восстанавливается автоматически.</li>
+                <li><strong>TikTok:</strong> в приложении «Нет доступа?» → подтвердите личность через привязанный телефон или почту. Если злоумышленник сменил привязки — пишите в поддержку через форму обратной связи.</li>
+                <li><strong>Telegram:</strong> Settings → Devices → Terminate All Other Sessions. Если не можете войти — переустановите приложение, введите номер телефона, дождитесь СМС. Если СМС не приходит — обратитесь к оператору связи (возможна SIM-swap атака).</li>
+            </ul>
+        </div>
+
+        <h2>Чек-лист после восстановления:</h2>
+        <div class="checklist">
+            <div class="checklist-item"><div class="checkbox"></div><div><strong>Смена паролей.</strong> Придумайте уникальный пароль из 12+ символов. Обновите пароль от привязанной почты и от телефона/оператора связи.</div></div>
+            <div class="checklist-item"><div class="checkbox"></div><div><strong>Завершение сеансов.</strong> Завершите все сессии на других устройствах во всех соцсетях.</div></div>
+            <div class="checklist-item"><div class="checkbox"></div><div><strong>Проверьте привязки.</strong> Убедитесь, что почта и телефон принадлежат вам. Удалите чужие устройства и подозрительные приложения с доступом.</div></div>
+            <div class="checklist-item"><div class="checkbox"></div><div><strong>Включите 2FA.</strong> Добавьте двухфакторную аутентификацию везде, где это возможно.</div></div>
+            <div class="checklist-item"><div class="checkbox"></div><div><strong>Обратитесь в поддержку.</strong> Сообщите платформе о взломе через официальные каналы.</div></div>
+            <div class="checklist-item"><div class="checkbox"></div><div><strong>Проверьте активность.</strong> Просмотрите последние действия: сообщения, публикации, платежи. Удалите всё, что сделал злоумышленник. Предупредите друзей о компрометации аккаунта.</div></div>
+            <div class="checklist-item"><div class="checkbox"></div><div><strong>Дополнительные меры.</strong> Просканируйте устройство антивирусом. Не вводите пароли на чужих компьютерах. Будьте осторожны с фишинговыми ссылками.</div></div>
+        </div>
+
+        <h2>Если не удалось восстановить доступ самостоятельно:</h2>
+        <ul>
+            <li><strong>Для VK и MAX:</strong> подготовьте скан паспорта, старые фото профиля, дату регистрации.</li>
+            <li><strong>Для TikTok:</strong> сохраните ссылки на видео, никнейм, примерную дату регистрации.</li>
+            <li><strong>Для Telegram:</strong> если SIM-карта украдена — сначала заблокируйте её у оператора, затем обращайтесь в поддержку Telegram.</li>
+        </ul>
+
+        <a href="index.html" class="btn-home">← На главную</a>
+    </div>
+</body>
+</html>
+---
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Безопасность ВКонтакте</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Soyuz Grotesk';
+            src: local('Soyuz Grotesk'), local('Arial');
+            font-weight: 700;
+        }
+        @font-face {
+            font-family: 'Arkhit';
+            src: local('Arkhit'), local('Inter'), local('Arial');
+            font-weight: 400;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arkhit', 'Inter', Arial, sans-serif;
+            background-color: #3B3B3B;
+            color: #FCFAFA;
+            font-size: 18px;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        h1 {
+            font-family: 'Soyuz Grotesk', Arial, sans-serif;
+            color: #ECCACB;
+            font-size: 40px;
+            margin-bottom: 30px;
+            line-height: 1.2;
+        }
+        h2 {
+            font-family: 'Soyuz Grotesk', Arial, sans-serif;
+            color: #ECCACB;
+            font-size: 32px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+        h3 {
+            font-family: 'Soyuz Grotesk', Arial, sans-serif;
+            color: #ECCACB;
+            font-size: 24px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .btn-home {
+            display: inline-block;
+            background-color: #ECCACB;
+            color: #3B3B3B;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 30px;
+            transition: opacity 0.2s;
+        }
+        .btn-home:hover {
+            opacity: 0.8;
+        }
+        .step {
+            background-color: rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 15px 0;
+            border-left: 3px solid #ECCACB;
+        }
+        .step-number {
+            color: #ECCACB;
+            font-weight: 700;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .checklist {
+            background-color: rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+        .checkbox {
+            width: 18px;
+            height: 18px;
+            border: 2px solid #ECCACB;
+            border-radius: 4px;
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+        .screenshot {
+            max-width: 320px;
+            width: 100%;
+            border-radius: 12px;
+            margin: 15px 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        .screenshots-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        @media (max-width: 600px) {
+            h1 { font-size: 28px; }
+            h2 { font-size: 24px; }
+            body { font-size: 16px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Безопасность ВКонтакте</h1>
+
+        <h2>О системе безопасности VK:</h2>
+        <p>VK использует комплексную многоуровневую систему защиты: технические средства шифрования, поведенческие механизмы, мониторинг активности и защиту от ботов, спама, фрода и DDoS-атак.</p>
+
+        <h3>Ключевые элементы защиты:</h3>
+        <ul>
+            <li>Беспарольный вход (OnePass) — вход по одноразовым кодам</li>
+            <li>Двухфакторная аутентификация (2FA)</li>
+            <li>Биометрическая аутентификация (Face ID/Touch ID)</li>
+            <li>Электронный ключ, хранящийся локально</li>
+            <li>Мониторинг истории входов и подключённых устройств</li>
+        </ul>
+
+        <h2>Пошаговая инструкция: Как защитить аккаунт</h2>
+
+        <div class="step">
+            <div class="step-number">Шаг 1. Перейдите на беспарольный вход (рекомендуется)</div>
+            <ol>
+                <li>Откройте приложение ВКонтакте</li>
+                <li>Настройки → Управление аккаунтом VK ID → Безопасность</li>
+                <li>В блоке «Способы входа» выберите «Вход по одноразовым кодам»</li>
+                <li>Выберите способ получения: SMS, push-уведомления, звонок-сброс или приложение-генератор</li>
+            </ol>
+        </div>
+
+        <div class="step">
+            <div class="step-number">Шаг 2. Подключите двухфакторную аутентификацию</div>
+            <ul>
+                <li>Вариант А: Подтверждение по SMS</li>
+                <li>Вариант Б: Приложение-генератор кодов (Google Authenticator, Яндекс.Ключ и др.)</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <div class="step-number">Шаг 3. Активируйте биометрический вход (OnePass)</div>
+            <p>Личный кабинет VK ID → Безопасность и вход → Вход по скану лица или отпечатку пальца</p>
+        </div>
+
+        <div class="step">
+            <div class="step-number">Шаг 4. Проверьте активность аккаунта</div>
+            <p>Безопасность → Устройства и активность → История активности. Удалите незнакомые устройства.</p>
+        </div>
+
+        <div class="step">
+            <div class="step-number">Шаг 5. Проверьте подключённые сервисы</div>
+            <p>В личном кабинете VK ID отключите все ненужные и подозрительные приложения</p>
+        </div>
+
+        <div class="step">
+            <div class="step-number">Шаг 6. Обновите данные профиля</div>
+            <p>Актуальный номер телефона, действующий email, реальные имя и фамилия, актуальные фотографии</p>
+        </div>
+
+        <h2>Индивидуальный чек-лист приватности:</h2>
+        <div class="checklist">
+            <div class="checklist-item"><div class="checkbox"></div><div>Скрыть точное время посещения: Настройки → Приватность → Кто видит, что я онлайн → «Только я»</div></div>
+            <div class="checklist-item"><div class="checkbox"></div><div>Закрытый профиль: Настройки → Приватность → Закрытый профиль</div></div>
+            <div class="checklist-item"><div class="checkbox"></div><div>Ограничить письма от незнакомцев</div></div>
+            <div class="checklist-item"><div class="checkbox"></div><div>Проверить список активных сеансов</div></div>
+            <div class="checklist-item"><div class="checkbox"></div><div>Не устанавливать сторонние приложения для «накрутки»</div></div>
+            <div class="checklist-item"><div class="checkbox"></div><div>Раз в месяц: проверять историю активности, подключённые сервисы, актуальность привязанного телефона и почты, обновлять приложение и антивирус</div></div>
+        </div>
+
+        <div class="screenshots-row">
+            <img src="https://via.placeholder.com/320x568/4a4a4a/ECCACB?text=VK+Screenshot+1" alt="VK Screenshot 1" class="screenshot">
+            <img src="https://via.placeholder.com/320x568/4a4a4a/ECCACB?text=VK+Screenshot+2" alt="VK Screenshot 2" class="screenshot">
+            <img src="https://via.placeholder.com/320x568/4a4a4a/ECCACB?text=VK+Screenshot+3" alt="VK Screenshot 3" class="screenshot">
+        </div>
+
+        <a href="index.html" class="btn-home">← На главную</a>
+    </div>
+</body>
+</html>
+---
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Безопасность MAX</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Soyuz Grotesk';
+            src: local('Soyuz Grotesk'), local('Arial');
+            font-weight: 700;
+        }
+        @font-face {
+            font-family: 'Arkhit';
+            src: local('Arkhit'), local('Inter'), local('Arial');
+            font-weight: 400;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arkhit', 'Inter', Arial, sans-serif;
+            background-color: #3B3B3B;
+            color: #FCFAFA;
+            font-size: 18px;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        h1 {
+            font-family: 'Soyuz Grotesk', Arial, sans-serif;
+            color: #ECCACB;
+            font-size: 40px;
+            margin-bottom: 30px;
+            line-height: 1.2;
+        }
+        h2 {
+            font-family: 'Soyuz Grotesk', Arial, sans-serif;
+            color: #ECCACB;
+            font-size: 32px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+        h3 {
+            font-family: 'Soyuz Grotesk', Arial, sans-serif;
+            color: #ECCACB;
+            font-size: 24px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .btn-home {
+            display: inline-block;
+            background-color: #ECCACB;
+            color: #3B3B3B;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 30px;
+            transition: opacity 0.2s;
+        }
+        .btn-home:hover {
+            opacity: 0.8;
+        }
+        .step {
+            background-color: rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 15px 0;
+            border-left: 3px solid #ECCACB;
+        }
+        .step-number {
+            color: #ECCACB;
+            font-weight: 700;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .checklist {
+            background-color: rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+        .checkbox {
+            width: 18px;
+            height: 18px;
+            border: 2px solid #ECCACB;
+            border-radius: 4px;
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+        .screenshot {
+            max-width: 320px;
+            width: 100%;
+            border-radius: 12px;
+            margin: 15px 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        .screenshots-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        @media (max-width: 600px) {
+            h1 { font-size: 28px; }
+            h2 { font-size: 24px; }
+            body { font-size: 16px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Безопасность MAX</h1>
+
+        <h2>О системе безопасности MAX:</h2>
+        <p>MAX использует единую систему безопасности с VK ID. Защита аккаунта MAX напрямую зависит от защиты вашего VK ID — при компрометации VK страдает и MAX.</p>
+
+        <h3>Ключевые элементы защиты:</h3>
+        <ul>
+            <li>Единый аккаунт VK ID для авторизации</li>
+            <li>Двухфакторная аутентификация через настройки VK</li>
+            <li>Контроль активных сеансов</li>
+            <li>Управление доступом сторонних приложений</li>
+        </ul>
+
+        <h2>Пошаговая инструкция: Как защитить аккаунт</h2>
+
+        <div class="step">
+            <div class="step-number">Шаг 1. Защитите VK ID</div>
+            <p>Поскольку MAX работает через VK ID, начните с полной защиты VK-аккаунта (см. раздел VK на нашем сайте). Включите 2FA, беспарольный вход или биометрию.</p>
+        </div>
+
+        <div class="step">
+            <div class="step-number">Шаг 2. Проверьте привязки в MAX</div>
+            <ol>
+                <li>Откройте приложение MAX</li>
+                <li>Профиль → Настройки → Аккаунт</li>
+                <li>Убедитесь, что привязан правильный VK ID и номер телефона</li>
+            </ol>
+        </div>
+
+        <div class="step">
+            <div class="step-number">Шаг 3. Проверьте активные сеансы</div>
+            <p>В настройках безопасности VK ID просмотрите устройства с доступом к MAX. Завершите сеансы на незнакомых устройствах.</p>
+        </div>
+
+        <div class="step">
+            <div class="step-number">Шаг 4. Настройте приватность профиля</div>
+            <ul>
+                <li>Видимость профиля: открытый / только контакты</li>
+                <li>Скрытие номера телефона от незнакомых пользователей</li>
+                <li>Ограничение статуса «в сети»</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <div class="step-number">Шаг 5. Пройдите квиз «Мошенник не пройдёт»</div>
+            <p>Встроенная функция в MAX для понимания основных схем обмана</p>
+        </div>
+
+        <h2>Индивидуальный чек-лист приватности:</h2>
+        <div class="checklist">
+            <div class="checklist-item"><div class="checkbox"></div><div>Пароль VK ID сложный и уникальный</div></div>
+            <div class="checklist-item"><div class="checkbox"></div><div>2FA включена в настройках VK</div></div>
+            <div class="checklist-item"><div class="checkbox"></div><div>Активные сеансы проверены и очищены</div></div>
+            <div class="checklist-item"><div class="checkbox"></div><div>Подозрительные устройства удалены</div></div>
+            <div class="checklist-item"><div class="checkbox"></div><div>Сообщения от незнакомцев с ссылками игнорируются и блокируются</div></div>
+            <div class="checklist-item"><div class="checkbox"></div><div>Заявки в друзья от незнакомцев не принимаются без проверки</div></div>
+            <div class="checklist-item"><div class="checkbox"></div><div>При взломе: сменить пароль VK ID, завершить все сессии, обратиться в поддержку MAX через приложение</div></div>
+        </div>
+
+        <div class="screenshots-row">
+            <img src="https://via.placeholder.com/320x568/4a4a4a/ECCACB?text=MAX+Screenshot+1" alt="MAX Screenshot" class="screenshot">
+        </div>
+
+        <a href="index.html" class="btn-home">← На главную</a>
+    </div>
+</body>
+</html>
+---
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Безопасность Telegram</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Soyuz Grotesk';
+            src: local('Soyuz Grotesk'), local('Arial');
+            font-weight: 700;
+        }
+        @font-face {
+            font-family: 'Arkhit';
+            src: local('Arkhit'), local('Inter'), local('Arial');
+            font-weight: 400;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arkhit', 'Inter', Arial, sans-serif;
+            background-color: #3B3B3B;
+            color: #FCFAFA;
+            font-size: 18px;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        h1 {
+            font-family: 'Soyuz Grotesk', Arial, sans-serif;
+            color: #ECCACB;
+            font-size: 40px;
+            margin-bottom: 30px;
+            line-height: 1.2;
+        }
+        h2 {
+            font-family: 'Soyuz Grotesk', Arial, sans-serif;
+            color: #ECCACB;
+            font-size: 32px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+        h3 {
+            font-family: 'Soyuz Grotesk', Arial, sans-serif;
+            color: #ECCACB;
+            font-size: 24px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .btn-home {
+            display: inline-block;
+            background-color: #ECCACB;
+            color: #3B3B3B;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 30px;
+            transition: opacity 0.2s;
+        }
+        .btn-home:hover {
+            opacity: 0.8;
+        }
+        .step {
+            background-color: rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 15px 0;
+            border-left: 3px solid #ECCACB;
+        }
+        .step-number {
+            color: #ECCACB;
+            font-weight: 700;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .checklist {
+            background-color: rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+        .checkbox {
+            width: 18px;
+            height: 18px;
+            border: 2px solid #ECCACB;
+            border-radius: 4px;
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+        .screenshot {
+            max-width: 320px;
+            width: 100%;
+            border-radius: 12px;
+            margin: 15px 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        .screenshots-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        @media (max-width: 600px) {
+            h1 { font-size: 28px; }
+            h2 { font-size: 24px; }
+            body { font-size: 16px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Безопасность Telegram</h1>
+
+        <h2>О системе безопасности Telegram:</h2>
+        <p>Telegram — один из самых популярных мессенджеров в России, используемый для личного общения, работы и получения новостей. Мессенджер часто взламывают с целью выкупа или шантажа, поэтому защита аккаунта критически важна.</p>
+
+        <h3>Ключевые принципы безопасности:</h3>
+        <ul>
+            <li>Двухэтапная аутентификация (Облачный пароль)</li>
+            <li>Скрытие номера телефона</li>
+            <li>Мониторинг активных устройств с указанием города и времени</li>
+            <li>Шифрование данных и секретные чаты с end-to-end шифрованием</li>
+        </ul>
+
+        <h2>Пошаговая инструкция: Как защитить аккаунт</h2>
+
+        <div class="step">
+            <div class="step-number">Шаг 1. Включите двухэтапную аутентификацию (Облачный пароль)</div>
+            <ol>
+                <li>Android: Telegram → ≡ → Настройки → Конфиденциальность и безопасность → Двухэтапная проверка</li>
+                <li>iPhone: Настройки → Конфиденциальность → Облачный пароль</li>
+                <li>Установите пароль (минимум 12 символов), добавьте подсказку, укажите email для восстановления</li>
+                <li>Сохраните резервный код в надёжном месте</li>
+            </ol>
+        </div>
+
+        <div class="step">
+            <div class="step-number">Шаг 2. Скройте номер телефона</div>
+            <ul>
+                <li>Настройки → Конфиденциальность → Номер телефона → «Кто может видеть» — «Никто»</li>
+                <li>«Кто может найти меня по номеру» — «Мои контакты» или «Никто»</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <div class="step-number">Шаг 3. Проверьте активные сеансы</div>
+            <p>Настройки → Конфиденциальность → Устройства. Удалите все незнакомые устройства, завершите лишние сеансы.</p>
+        </div>
+
+        <div class="step">
+            <div class="step-number">Шаг 4. Настройте приватность профиля</div>
+            <ul>
+                <li>Скрыть фото профиля: «Мои контакты»</li>
+                <li>Скрыть статус онлайн: «Никто»</li>
+                <li>Отключить пересылку сообщений с ссылкой на аккаунт</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <div class="step-number">Шаг 5. Ограничите добавление в группы и каналы</div>
+            <p>Настройки → Конфиденциальность → Группы и каналы → «Мои контакты» или «Никто»</p>
+        </div>
+
+        <div class="step">
+            <div class="step-number">Шаг 6. Настройте звонки</div>
+            <ul>
+                <li>Настройки → Конфиденциальность → Звонки → «Мои контакты» или «Никто»</li>
+                <li>Отключите Peer-to-Peer для скрытия IP-адреса</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <div class="step-number">Шаг 7. Отключите синхронизацию контактов (опционально)</div>
+            <p>Настройки → Конфиденциальность → Синхронизация контактов — выключить</p>
+        </div>
+
+        <h2>Индивидуальный чек-лист приватности:</h2>
+        <div class="checklist">
+            <div class="checklist-item"><div class="checkbox"></div><div>Облачный пароль установлен, резервный email указан, резервный код сохранён</div></div>
+            <div class="checklist-item"><div class="checkbox"></div><div>Номер телефона скрыт, поиск по номеру ограничен</div></div>
+            <div class="checklist-item"><div class="checkbox"></div><div>Активные сеансы проверены и очищены</div></div>
+            <div class="checklist-item"><div class="checkbox"></div><div>Последняя активность скрыта, фото профиля доступно только контактам</div></div>
+            <div class="checklist-item"><div class="checkbox"></div><div>Пересылка сообщений не создаёт ссылку на аккаунт</div></div>
+            <div class="checklist-item"><div class="checkbox"></div><div>Звонки ограничены, Peer-to-Peer отключён</div></div>
+            <div class="checklist-item"><div class="checkbox"></div><div>Добавление в группы ограничено</div></div>
+            <div class="checklist-item"><div class="checkbox"></div><div>Раз в месяц: проверка сеансов, обновление приложения, проверка настроек приватности</div></div>
+        </div>
+
+        <h3>Дополнительно:</h3>
+        <ul>
+            <li>Не покупайте аккаунты с рук</li>
+            <li>Не используйте подозрительных ботов</li>
+            <li>Не авторизуйтесь на неизвестных сайтах через Telegram</li>
+            <li>Используйте секретные чаты для важной переписки</li>
+            <li>Никому не сообщайте коды из SMS</li>
+        </ul>
+
+        <div class="screenshots-row">
+            <img src="https://via.placeholder.com/320x568/4a4a4a/ECCACB?text=Telegram+Screenshot+1" alt="Telegram Screenshot" class="screenshot">
+        </div>
+
+        <a href="index.html" class="btn-home">← На главную</a>
+    </div>
+</body>
+</html>
+---
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Безопасность TikTok</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Soyuz Grotesk';
+            src: local('Soyuz Grotesk'), local('Arial');
+            font-weight: 700;
+        }
+        @font-face {
+            font-family: 'Arkhit';
+            src: local('Arkhit'), local('Inter'), local('Arial');
+            font-weight: 400;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arkhit', 'Inter', Arial, sans-serif;
+            background-color: #3B3B3B;
+            color: #FCFAFA;
+            font-size: 18px;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        h1 {
+            font-family: 'Soyuz Grotesk', Arial, sans-serif;
+            color: #ECCACB;
+            font-size: 40px;
+            margin-bottom: 30px;
+            line-height: 1.2;
+        }
+        h2 {
+            font-family: 'Soyuz Grotesk', Arial, sans-serif;
+            color: #ECCACB;
+            font-size: 32px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+        h3 {
+            font-family: 'Soyuz Grotesk', Arial, sans-serif;
+            color: #ECCACB;
+            font-size: 24px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .btn-home {
+            display: inline-block;
+            background-color: #ECCACB;
+            color: #3B3B3B;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 30px;
+            transition: opacity 0.2s;
+        }
+        .btn-home:hover {
+            opacity: 0.8;
+        }
+        .step {
+            background-color: rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 15px 0;
+            border-left: 3px solid #ECCACB;
+        }
+        .step-number {
+            color: #ECCACB;
+            font-weight: 700;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .checklist {
+            background-color: rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+        .checkbox {
+            width: 18px;
+            height: 18px;
+            border: 2px solid #ECCACB;
+            border-radius: 4px;
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+        .screenshot {
+            max-width: 320px;
+            width: 100%;
+            border-radius: 12px;
+            margin: 15px 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        .screenshots-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        @media (max-width: 600px) {
+            h1 { font-size: 28px; }
+            h2 { font-size: 24px; }
+            body { font-size: 16px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Безопасность TikTok</h1>
+
+        <h2>О системе безопасности TikTok:</h2>
+        <p>TikTok использует многоуровневую систему защиты с техническими средствами и поведенческими механизмами. Встроенная функция «Проверка безопасности» помогает усилить защиту аккаунта пошагово.</p>
+
+        <h3>Ключевые элементы защиты:</h3>
+        <ul>
+            <li>Проверка безопасности (встроенная функция)</li>
+            <li>Двухэтапная верификация</li>
+            <li>Ключи входа (Passkeys) через Face ID/Touch ID</li>
+            <li>Управление доверенными устройствами</li>
+            <li>Мониторинг активности за 30 дней</li>
+        </ul>
+
+        <h2>Пошаговая инструкция: Как защитить аккаунт</h2>
+
+        <div class="step">
+            <div class="step-number">Шаг 1. Выполните «Проверку безопасности»</div>
+            <ol>
+                <li>Профиль → Меню (☰) → Настройки и конфиденциальность → Безопасность и разрешения → Проверка безопасности</li>
+                <li>Выполните все шаги: привяжите телефон и email, включите 2FA, проверьте устройства, просмотрите активность, добавьте ключ входа</li>
+            </ol>
+        </div>
+
+        <div class="step">
+            <div class="step-number">Шаг 2. Привяжите номер телефона и email</div>
+            <p>Рекомендуется привязать два способа связи для альтернативного восстановления</p>
+        </div>
+
+        <div class="step">
+            <div class="step-number">Шаг 3. Создайте надёжный пароль</div>
+            <ul>
+                <li>12–15 символов, буквы разного регистра, цифры, символы</li>
+                <li>Регулярно меняйте (каждые 30 дней)</li>
+                <li>Не используйте персональные данные</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <div class="step-number">Шаг 4. Включите двухэтапную верификацию</div>
+            <p>Профиль → Меню → Настройки и конфиденциальность → Безопасность → Двухэтапная верификация. Выберите минимум 2 способа: SMS, email, пароль.</p>
+        </div>
+
+        <div class="step">
+            <div class="step-number">Шаг 5. Настройте ключ входа (Passkey)</div>
+            <p>Профиль → Меню → Настройки → Безопасность → Ключ входа. Используйте биометрию устройства.</p>
+        </div>
+
+        <div class="step">
+            <div class="step-number">Шаг 6. Проверьте и очистите доверенные устройства</div>
+            <p>Профиль → Меню → Настройки → Безопасность → Управление устройствами. Удалите незнакомые устройства, при обнаружении чужих — срочно смените пароль.</p>
+        </div>
+
+        <div class="step">
+            <div class="step-number">Шаг 7. Отключите сохранение логина (опционально)</div>
+            <p>Профиль → Меню → Безопасность → отключите «Сохранить логин и пароль»</p>
+        </div>
+
+        <h2>Индивидуальный чек-лист приватности:</h2>
+        <div class="checklist">
+            <div class="checklist-item"><div class="checkbox"></div><div>Проверка безопасности выполнена (все шаги с галочками)</div></div>
+            <div class="checklist-item"><div class="checkbox"></div><div>Привязаны телефон и email</div></div>
+            <div class="checklist-item"><div class="checkbox"></div><div>Пароль надёжный, 2FA включена (минимум 2 способа)</div></div>
+            <div class="checklist-item"><div class="checkbox"></div><div>Ключ входа настроен через биометрию</div></div>
+            <div class="checklist-item"><div class="checkbox"></div><div>Доверенные устройства проверены и очищены</div></div>
+            <div class="checklist-item"><div class="checkbox"></div><div>Приватный аккаунт включён (при необходимости)</div></div>
+            <div class="checklist-item"><div class="checkbox"></div><div>Скачивание видео отключено, дуэты и сшивание ограничены</div></div>
+            <div class="checklist-item"><div class="checkbox"></div><div>Комментарии фильтруются от спама, добавлены стоп-слова</div></div>
+            <div class="checklist-item"><div class="checkbox"></div><div>Личные сообщения ограничены, звонки ограничены</div></div>
+            <div class="checklist-item"><div class="checkbox"></div><div>Раз в месяц: проверка устройств, просмотр активности, обновление приложения, смена пароля</div></div>
+        </div>
+
+        <h3>Дополнительно:</h3>
+        <ul>
+            <li>Не используйте сервисы для «накрутки»</li>
+            <li>Не переходите по подозрительным ссылкам</li>
+            <li>Будьте осторожны с фейковыми розыгрышами</li>
+            <li>TikTok никогда не просит пароль в личных сообщениях</li>
+        </ul>
+
+        <div class="screenshots-row">
+            <img src="https://via.placeholder.com/320x568/4a4a4a/ECCACB?text=TikTok+Screenshot+1" alt="TikTok Screenshot" class="screenshot">
+        </div>
+
+        <a href="index.html" class="btn-home">← На главную</a>
+    </div>
+</body>
+</html>
+---
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сборник чек-листов безопасности</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        @font-face { font-family: 'Soyuz Grotesk'; src: local('Soyuz Grotesk'), local('Arial'); font-weight: 700; }
+        @font-face { font-family: 'Arkhit'; src: local('Arkhit'), local('Inter'), local('Arial'); font-weight: 400; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Arkhit', 'Inter', Arial, sans-serif; background-color: #3B3B3B; color: #FCFAFA; font-size: 18px; line-height: 1.6; min-height: 100vh; }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        h1 { font-family: 'Soyuz Grotesk', Arial, sans-serif; color: #ECCACB; font-size: 40px; margin-bottom: 30px; line-height: 1.2; }
+        h2 { font-family: 'Soyuz Grotesk', Arial, sans-serif; color: #ECCACB; font-size: 32px; margin-top: 30px; margin-bottom: 20px; }
+        h3 { font-family: 'Soyuz Grotesk', Arial, sans-serif; color: #ECCACB; font-size: 24px; margin-top: 25px; margin-bottom: 15px; }
+        p { margin-bottom: 15px; }
+        ul, ol { margin-left: 20px; margin-bottom: 20px; }
+        li { margin-bottom: 10px; }
+        .btn-home { display: inline-block; background-color: #ECCACB; color: #3B3B3B; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; margin-top: 30px; transition: opacity 0.2s; }
+        .btn-home:hover { opacity: 0.8; }
+        .checklist { background-color: rgba(255,255,255,0.05); padding: 20px; border-radius: 12px; margin: 20px 0; }
+        .checklist-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; }
+        .checkbox { width: 18px; height: 18px; border: 2px solid #ECCACB; border-radius: 4px; flex-shrink: 0; margin-top: 3px; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; background-color: rgba(255,255,255,0.05); border-radius: 8px; overflow: hidden; }
+        th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        th { background-color: rgba(236, 202, 203, 0.2); color: #ECCACB; font-weight: 600; }
+        tr:hover { background-color: rgba(255,255,255,0.05); }
+        @media (max-width: 600px) { h1 { font-size: 28px; } h2 { font-size: 24px; } body { font-size: 16px; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Сборник чек-листов безопасности</h1>
+
+        <h2>Общий чек-лист «Быстрый аудит» (для всех платформ):</h2>
+        <table>
+            <tr>
+                <th>№</th>
+                <th>Проверка</th>
+                <th>Статус</th>
+            </tr>
+            <tr><td>1</td><td>Пароль уникальный (не используется на других сайтах)</td><td>☐</td></tr>
+            <tr><td>2</td><td>Двухфакторная аутентификация (2FA) включена</td><td>☐</td></tr>
+            <tr><td>3</td><td>Привязан актуальный номер телефона и резервный email</td><td>☐</td></tr>
+            <tr><td>4</td><td>Просмотрен список активных сессий — нет посторонних</td><td>☐</td></tr>
+            <tr><td>5</td><td>Отключены неиспользуемые сторонние приложения и боты</td><td>☐</td></tr>
+            <tr><td>6</td><td>Настроены уведомления о входах с новых устройств</td><td>☐</td></tr>
+            <tr><td>7</td><td>Резервные коды восстановления сохранены в надёжном месте</td><td>☐</td></tr>
+        </table>
+
+        <h2>Чек-лист ВКонтакте:</h2>
+        <div class="checklist">
+            <h3>Базовая защита:</h3>
+            <div class="checklist-item"><div class="checkbox"></div><div>Пароль: минимум 12 символов, буквы разного регистра, цифры, спецсимволы</div></div>
+            <div class="checklist-item"><div class="checkbox"></div><div>Двухфакторная аутентификация включена (приложение-аутентификатор рекомендуется)</div></div>
+            <div class="checklist-item"><div class="checkbox"></div><div>Беспарольный вход настроен, резервные коды сохранены</div></div>
+            <div class="checklist-item"><div class="checkbox"></div><div>Email привязан и подтверждён</div></div>
+            
+            <h3>Контроль доступа:</h3>
+            <div class="checklist-item"><div class="checkbox"></div><div>История активности проверена, все устройства узнаваемы</div></div>
+            <div class="checklist-item"><div class="checkbox"></div><div>Лишние сессии завершены</div></div>
+            <div class="checklist-item"><div class="checkbox"></div><div>Сторонние приложения отключены</div></div>
+            
+            <h3>Приватность:</h3>
+            <div class="checklist-item"><div class="checkbox"></div><div>Номер телефона скрыт ото всех, кроме друзей</div></div>
+            <div class="checklist-item"><div class="checkbox"></div><div>Профиль закрыт от поисковых систем</div></div>
+            <div class="checklist-item"><div class="checkbox"></div><div>Личные сообщения ограничены</div></div>
+            
+            <h3>Защита от мошенничества:</h3>
+            <div class="checklist-item"><div class="checkbox"></div><div>Не переходите по подозрительным ссылкам</div></div>
+            <div class="checklist-item"><div class="checkbox"></div><div>Никогда не сообщайте коды из SMS</div></div>
+            <div class="checklist-item"><div class="checkbox"></div><div>Проверяйте адрес сайта: только vk.com или vk.ru</div></div>
+        </div>
+
+        <h2>Чек-лист Telegram:</h2>
+        <div class="checklist">
+            <h3>Базовая защита:</h3>
+            <div class="checklist-item"><div class="checkbox"></div><div>Облачный пароль (2FA) установлен</div></div>
+            <div class="checklist-item"><div class="checkbox"></div><div>Резервный email указан, резервный код сохранён</div></div>
+            
+            <h3>Контроль сессий:</h3>
+            <div class="checklist-item"><div class="checkbox"></div><div>Активные сеансы проверены и очищены</div></div>
+            
+            <h3>Приватность:</h3>
+            <div class="checklist-item"><div class="checkbox"></div><div>Номер телефона скрыт</div></div>
+            <div class="checklist-item"><div class="checkbox"></div><div>Последняя активность ограничена</div></div>
+            <div class="checklist-item"><div class="checkbox"></div><div>Пересылка сообщений ограничена</div></div>
+            
+            <h3>Защита переписки:</h3>
+            <div class="checklist-item"><div class="checkbox"></div><div>Секретные чаты используются для важной переписки</div></div>
+            <div class="checklist-item"><div class="checkbox"></div><div>Таймер автоудаления настроен</div></div>
+        </div>
+
+        <h2>Чек-лист MAX:</h2>
+        <div class="checklist">
+            <div class="checklist-item"><div class="checkbox"></div><div>Пароль VK ID сложный и уникальный</div></div>
+            <div class="checklist-item"><div class="checkbox"></div><div>Активные сеансы проверены</div></div>
+            <div class="checklist-item"><div class="checkbox"></div><div>Подозрительные сообщения блокируются</div></div>
+        </div>
+
+        <h2>Чек-лист TikTok:</h2>
+        <div class="checklist">
+            <div class="checklist-item"><div class="checkbox"></div><div>Проверка безопасности выполнена</div></div>
+            <div class="checklist-item"><div class="checkbox"></div><div>Двухэтапная верификация включена (минимум 2 способа)</div></div>
+            <div class="checklist-item"><div class="checkbox"></div><div>Ключ входа (Passkey) настроен</div></div>
+            <div class="checklist-item"><div class="checkbox"></div><div>Приватный аккаунт включён (при необходимости)</div></div>
+            <div class="checklist-item"><div class="checkbox"></div><div>Скачивание видео отключено</div></div>
+        </div>
+
+        <h2>Чек-лист «Что делать, если аккаунт взломали»:</h2>
+        <table>
+            <tr>
+                <th>Шаг</th>
+                <th>Действие</th>
+                <th>Срочность</th>
+            </tr>
+            <tr><td>1</td><td>Сменить пароль через официальное приложение/сайт</td><td>Немедленно</td></tr>
+            <tr><td>2</td><td>Завершить все активные сессии</td><td>Немедленно</td></tr>
+            <tr><td>3</td><td>Проверить привязанный email и телефон</td><td>10 минут</td></tr>
+            <tr><td>4</td><td>Отозвать доступ у сторонних приложений</td><td>30 минут</td></tr>
+            <tr><td>5</td><td>Включить 2FA</td><td>30 минут</td></tr>
+            <tr><td>6</td><td>Просканировать устройство на вирусы</td><td>1 час</td></tr>
+            <tr><td>7</td><td>Уведомить друзей о компрометации</td><td>1 час</td></tr>
+            <tr><td>8</td><td>Написать в официальную поддержку</td><td>24 часа</td></tr>
+            <tr><td>9</td><td>Проверить связанные аккаунты (почта, банки)</td><td>24 часа</td></tr>
+            <tr><td>10</td><td>Заявление в полицию при крупном ущербе</td><td>72 часа</td></tr>
+        </table>
+
+        <a href="index.html" class="btn-home">← На главную</a>
+    </div>
+</body>
+</html>
+---
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ответы на частые вопросы</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        @font-face { font-family: 'Soyuz Grotesk'; src: local('Soyuz Grotesk'), local('Arial'); font-weight: 700; }
+        @font-face { font-family: 'Arkhit'; src: local('Arkhit'), local('Inter'), local('Arial'); font-weight: 400; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Arkhit', 'Inter', Arial, sans-serif; background-color: #3B3B3B; color: #FCFAFA; font-size: 18px; line-height: 1.6; min-height: 100vh; }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        h1 { font-family: 'Soyuz Grotesk', Arial, sans-serif; color: #ECCACB; font-size: 40px; margin-bottom: 30px; line-height: 1.2; }
+        h2 { font-family: 'Soyuz Grotesk', Arial, sans-serif; color: #ECCACB; font-size: 32px; margin-top: 30px; margin-bottom: 20px; }
+        p { margin-bottom: 15px; }
+        .btn-home { display: inline-block; background-color: #ECCACB; color: #3B3B3B; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; margin-top: 30px; transition: opacity 0.2s; }
+        .btn-home:hover { opacity: 0.8; }
+        .faq-item { margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .faq-question { font-weight: 600; color: #ECCACB; margin-bottom: 10px; font-size: 20px; }
+        a { color: #ECCACB; text-decoration: underline; }
+        @media (max-width: 600px) { h1 { font-size: 28px; } body { font-size: 16px; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Ответы на частые вопросы</h1>
+
+        <div class="faq-item">
+            <div class="faq-question">Вопрос 1: Что делать, если я забыл пароль и не могу восстановить доступ через почту/телефон?</div>
+            <p>Обратитесь в службу поддержки социальной сети. Для VK подготовьте скан паспорта, старые фото профиля и примерную дату регистрации. Для TikTok — ссылки на видео, никнейм, примерную дату регистрации. Процесс восстановления может занять несколько дней.</p>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Вопрос 2: Обязательно ли включать двухфакторную аутентификацию?</div>
+            <p>Да. Это самый эффективный способ защитить аккаунт. Даже если злоумышленник узнает ваш пароль, без доступа к вашему телефону он не сможет войти.</p>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Вопрос 3: Безопасен ли беспарольный вход в VK?</div>
+            <p>По данным VK, беспарольный вход (OnePass) безопаснее традиционного пароля. Исключается риск кражи, подбора или утечки пароля. Рекомендуется использовать push-уведомления или приложение-генератор вместо SMS.</p>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Вопрос 4: Что такое SIM-swap атака и как от неё защититься?</div>
+            <p>Это мошенничество, при котором злоумышленник переносит ваш номер телефона на свою SIM-карту. Защита: установите PIN-код на SIM-карту, используйте приложение-аутентификатор вместо SMS для 2FA, при подозрении немедленно звоните оператору.</p>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Вопрос 5: Можно ли восстановить удалённые сообщения или фото после взлома?</div>
+            <p>В VK — через функцию «Мои данные» можно запросить архив. В Telegram — облачные чаты хранят историю, секретные чаты — нет. В TikTok — обратитесь в поддержку. Лучшее решение — регулярное резервное копирование важных данных.</p>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Вопрос 6: Как отличить официальную поддержку от мошенников?</div>
+            <p>Официальная поддержка никогда не пишет первой, не просит пароли, коды из SMS или данные карты. В Telegram официальный аккаунт только @Telegram. В VK — обращение только через <a href="https://vk.com/support" target="_blank">vk.com/support</a>.</p>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Вопрос 7: Что делать, если от моего имени рассылают спам?</div>
+            <p>Срочно смените пароль, завершите все сессии, включите 2FA, проверьте подключённые приложения. Предупредите друзей, что аккаунт был скомпрометирован. Удалите спам-сообщения и публикации.</p>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Вопрос 8: Нужен ли антивирус на телефоне?</div>
+            <p>Да. Мобильные трояны и кейлоггеры — реальная угроза. Используйте проверенные антивирусные решения, не устанавливайте приложения из неофициальных источников.</p>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Вопрос 9: Как часто менять пароли?</div>
+            <p>Рекомендуется менять пароли каждые 3–6 месяцев и сразу после подозрения на взлом. Используйте менеджер паролей для генерации и хранения сложных уникальных паролей.</p>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Вопрос 10: Что такое фишинг и как его распознать?</div>
+            <p>Фишинг — поддельные сайты/сообщения, имитирующие официальные сервисы. Признаки: странные домены (vkk.com вместо vk.com), срочные требования перейти по ссылке, просьбы ввести пароль или код. Всегда проверяйте адрес сайта.</p>
+        </div>
+
+        <a href="index.html" class="btn-home">← На главную</a>
+    </div>
+</body>
+</html>
+---
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Источники и справочные материалы</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        @font-face { font-family: 'Soyuz Grotesk'; src: local('Soyuz Grotesk'), local('Arial'); font-weight: 700; }
+        @font-face { font-family: 'Arkhit'; src: local('Arkhit'), local('Inter'), local('Arial'); font-weight: 400; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Arkhit', 'Inter', Arial, sans-serif; background-color: #3B3B3B; color: #FCFAFA; font-size: 18px; line-height: 1.6; min-height: 100vh; }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        h1 { font-family: 'Soyuz Grotesk', Arial, sans-serif; color: #ECCACB; font-size: 40px; margin-bottom: 30px; line-height: 1.2; }
+        h2 { font-family: 'Soyuz Grotesk', Arial, sans-serif; color: #ECCACB; font-size: 32px; margin-top: 30px; margin-bottom: 20px; }
+        p { margin-bottom: 15px; }
+        ul, ol { margin-left: 20px; margin-bottom: 20px; }
+        li { margin-bottom: 10px; }
+        .btn-home { display: inline-block; background-color: #ECCACB; color: #3B3B3B; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; margin-top: 30px; transition: opacity 0.2s; }
+        .btn-home:hover { opacity: 0.8; }
+        a { color: #ECCACB; text-decoration: underline; }
+        .source-link { display: block; margin-bottom: 8px; }
+        @media (max-width: 600px) { h1 { font-size: 28px; } h2 { font-size: 24px; } body { font-size: 16px; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Источники и справочные материалы</h1>
+
+        <h2>Официальные справки социальных сетей:</h2>
+        <ul>
+            <li><a href="https://vk.com/support" target="_blank" class="source-link">VK. Справочный центр: vk.com/support</a></li>
+            <li><a href="https://vk.com/faq12101" target="_blank" class="source-link">VK. Безопасность аккаунта: vk.com/faq12101</a></li>
+            <li><a href="https://id.vk.com/about" target="_blank" class="source-link">VK ID. Управление безопасностью: id.vk.com/about</a></li>
+            <li><a href="https://telegram.org/faq" target="_blank" class="source-link">Telegram. FAQ: telegram.org/faq</a></li>
+            <li><span class="source-link">Telegram. Восстановление доступа: recovery@telegram.org</span></li>
+            <li><a href="https://www.tiktok.com/safety" target="_blank" class="source-link">TikTok. Центр безопасности: tiktok.com/safety</a></li>
+            <li><a href="https://support.tiktok.com" target="_blank" class="source-link">TikTok. Справочный центр: support.tiktok.com</a></li>
+        </ul>
+
+        <h2>Рекомендуемые приложения для 2FA:</h2>
+        <ul>
+            <li>Google Authenticator</li>
+            <li>Microsoft Authenticator</li>
+            <li>Authy</li>
+            <li>Яндекс.Ключ</li>
+        </ul>
+
+        <h2>Полезные ресурсы:</h2>
+        <ul>
+            <li><a href="https://kaspersky.ru" target="_blank" class="source-link">Касперский: kaspersky.ru — антивирусная защита</a></li>
+            <li><a href="https://drweb.ru" target="_blank" class="source-link">Dr.Web: drweb.ru</a></li>
+            <li><a href="https://haveibeenpwned.com" target="_blank" class="source-link">Have I Been Pwned: haveibeenpwned.com — проверка утечек данных</a></li>
+        </ul>
+
+        <h2>Литература и методические материалы:</h2>
+        <ul>
+            <li>Руководства по кибербезопасности для пользователей социальных сетей</li>
+            <li>Материалы Роскомнадзора по защите персональных данных</li>
+            <li>Рекомендации ЦБ РФ по безопасности в интернете</li>
+        </ul>
+
+        <a href="index.html" class="btn-home">← На главную</a>
+    </div>
+</body>
+</html>
